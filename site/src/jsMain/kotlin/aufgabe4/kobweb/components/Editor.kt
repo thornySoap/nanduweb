@@ -28,10 +28,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.attributes.download
-import org.jetbrains.compose.web.css.LineStyle
-import org.jetbrains.compose.web.css.Position
-import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 import util.dimensions
 import kotlin.experimental.and
@@ -124,12 +121,10 @@ fun Editor(modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.Center,
             ) {
                 A(
-                    href = "data:application/text;charset=utf-8,${construction.asString().replace("\n", "%0A")}",
+                    href = "data:text/plain;charset=utf-8,${construction.asString().replace("\n", "%0A")}",
                     attrs = { download("new_document.txt") }
                 ) {
-                    Button(
-                        onClick = { },
-                    ) {
+                    Button(onClick = { }) {
                         FaDownload()
                     }
                 }
@@ -313,7 +308,13 @@ fun Editor(modifier: Modifier = Modifier) {
                                 )
 
                                 if (component == Components.EMITTER || component == Components.RECEIVER)
-                                    Div(attrs = Modifier.pointerEvents(PointerEvents.None).toAttrs()) {
+                                    Div(
+                                        attrs = Modifier
+                                            .pointerEvents(PointerEvents.None)
+                                            .color(Color.black)
+                                            .position(Position.Relative)
+                                            .toAttrs(),
+                                    ) {
                                         Text(construction[y][x])
                                     }
                             }
@@ -396,7 +397,7 @@ fun Editor(modifier: Modifier = Modifier) {
                                     .toAttrs()
                             ) {
                                 Tr { table!!.keys.forEach { Th { Text(it) } } }
-                                for (i in 0..<table!!.size) {
+                                for (i in 0..<(table!!.values.firstOrNull()?.size ?: 0)) {
                                     Tr {
                                         table!!.values.forEach {
                                             Td(

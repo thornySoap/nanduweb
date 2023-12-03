@@ -41,10 +41,10 @@ fun Help(
             P {
                 B { Text("Drag and drop components from above into the field") }; Br()
                 Hr()
-                Text("Red: Emits light if it's one sensor doesn't detect light"); Br()
-                Text("White: Emits light if both it's sensors don't detect light"); Br()
+                Text("Red: Emits light if its one sensor doesn't detect light"); Br()
+                Text("White: Emits light if not both its sensors detect light"); Br()
                 Text("Blue: Emits light on the left if its left sensor detects light"); Br()
-                Text("      Emits light on the right if its right sensor detects light"); Br()
+                Text("Emits light on the right if its right sensor detects light"); Br()
                 Hr()
                 Text("Emitter: Emits light"); Br()
                 Text("Receiver: Receives light (open side panel to see table)"); Br()
