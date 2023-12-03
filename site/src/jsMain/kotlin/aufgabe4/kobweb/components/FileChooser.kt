@@ -12,12 +12,10 @@ import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import com.varabyte.kobweb.silk.theme.colors.palette.background
-import com.varabyte.kobweb.silk.theme.colors.palette.color
 import com.varabyte.kobweb.silk.theme.colors.palette.toPalette
 import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.attributes.accept
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.dom.FileInput
 import org.jetbrains.compose.web.dom.H4
 import org.jetbrains.compose.web.dom.Input
 import org.jetbrains.compose.web.dom.Text
@@ -30,7 +28,7 @@ fun FileChooser(
     onCancel: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    var colorMode by ColorMode.currentState
+    val colorMode by ColorMode.currentState
     val colorPalette = colorMode.toPalette()
     var selected by remember { mutableStateOf<File?>(null) }
 

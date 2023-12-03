@@ -124,7 +124,7 @@ fun Editor(modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.Center,
             ) {
                 A(
-                    href = "data:application/text;charset=utf-8,${construction.asString()}",
+                    href = "data:application/text;charset=utf-8,${construction.asString().replace("\n", "%0A")}",
                     attrs = { download("new_document.txt") }
                 ) {
                     Button(
@@ -240,6 +240,12 @@ fun Editor(modifier: Modifier = Modifier) {
                     },
                 contentAlignment = Alignment.Center,
             ) {
+                if (showHelp)
+                    Help(
+                        onDismiss = { showHelp = false },
+                        modifier = Modifier.zIndex(20),
+                    )
+
                 if (showFileChooser)
                     FileChooser(
                         onOk = {
@@ -253,6 +259,7 @@ fun Editor(modifier: Modifier = Modifier) {
                             showFileChooser = false
                         },
                         onCancel = { showFileChooser = false },
+                        modifier = Modifier.zIndex(20),
                     )
             }
 
