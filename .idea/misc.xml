@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="GdProjectSettingsState">
+    <hidePrivate>false</hidePrivate>
+    <sdkPath>$APPLICATION_PLUGINS_DIR$/GdScript/GdSdk 4.0.3</sdkPath>
+    <shouldType>true</shouldType>
+    <shortTyped>true</shortTyped>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="temurin-17" project-jdk-type="JavaSDK" />
+</project>

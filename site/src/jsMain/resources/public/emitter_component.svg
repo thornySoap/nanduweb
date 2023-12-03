@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="20"
+   height="20"
+   viewBox="0 0 20 20"
+   version="1.1"
+   id="svg5"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient5551">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.89803922;"
+         offset="0"
+         id="stop5545" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.5"
+         id="stop5547" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.89803922;"
+         offset="1"
+         id="stop5549" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient5551"
+       id="linearGradient5557"
+       gradientUnits="userSpaceOnUse"
+       x1="1"
+       y1="10"
+       x2="19"
+       y2="10"
+       gradientTransform="matrix(1,0,0,-1,0,20)" />
+  </defs>
+  <g
+     id="g5600"
+     style="display:inline">
+    <path
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.34506;stroke-linecap:round;stroke-linejoin:round"
+       id="path5598"
+       width="20"
+       height="20"
+       x="0"
+       y="0"
+       ry="1.4167129"
+       d="M 1.4167129,0 H 18.583287 C 19.368146,0 20,0.63185394 20,1.4167129 V 18.583287 C 20,19.368146 19.368146,20 18.583287,20 H 1.4167129 C 0.63185394,20 0,19.368146 0,18.583287 V 1.4167129 C 0,0.63185394 0.63185394,0 1.4167129,0 Z" />
+  </g>
+  <g
+     id="g5555"
+     style="display:inline">
+    <path
+       id="path5553"
+       style="opacity:1;fill:url(#linearGradient5557);fill-opacity:1;stroke:none;stroke-width:4.08747;stroke-linecap:round;stroke-linejoin:round"
+       d="M 2.2753906,19 C 1.5690183,19 1,18.430982 1,17.724609 V 2.275391 C 1,1.569018 1.5690183,1 2.2753906,1 H 17.724609 C 18.430982,1 19,1.569018 19,2.275391 V 17.724609 C 19,18.430982 18.430982,19 17.724609,19 H 17.46875 c 0,0 -2.832349,-2.17623 -5.064453,-2.17623 C 10.172193,16.82377 7.3398438,19 7.3398438,19 Z" />
+  </g>
+</svg>
