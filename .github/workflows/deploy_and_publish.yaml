@@ -23,6 +23,8 @@ jobs:
         shell: bash
     env:
       KOBWEB_CLI_VERSION: 0.9.13
+      REPO_NAME: ${{ github.event.repository.name }}
+
       
     environment:
       name: github-pages
@@ -35,25 +37,20 @@ jobs:
         with:
           distribution: temurin
           java-version: 11
-
       # When projects are created on Windows, the executable bit is sometimes lost. So set it back just in case.
       - name: Ensure Gradle is executable
         run: chmod +x gradlew
-
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-
       - name: Query Browser Cache ID
         id: browser-cache-id
         run: echo "value=$(./gradlew -q :site:kobwebBrowserCacheId)" >> $GITHUB_OUTPUT
-
       - name: Cache Browser Dependencies
         uses: actions/cache@v3
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ steps.browser-cache-id.outputs.value }}
-
       - name: Fetch kobweb
         uses: robinraju/release-downloader@v1.7
         with:
@@ -62,9 +59,18 @@ jobs:
           fileName: "kobweb-${{ env.KOBWEB_CLI_VERSION }}.zip"
           tarBall: false
           zipBall: false
-
       - name: Unzip kobweb
         run: unzip kobweb-${{ env.KOBWEB_CLI_VERSION }}.zip
+
+      - name: Setting routePrefix
+        run: |
+          cd site/.kobweb/
+          cp conf.yaml lastconf.yaml
+          (grep -q "routePrefix\:" lastconf.yaml && sed 's/routePrefix\:.*"\/*\(.*\)".*/routePrefix\: "${{ env.REPO_NAME }}\/\1"/' lastconf.yaml || sed 's/\(.*\)site:/\1site:\n\1  routePrefix\: "${{ env.REPO_NAME }}"/' lastconf.yaml) > conf.yaml
+          echo "conf.yaml changed FROM"
+          cat lastconf.yaml
+          echo -e "\nTO"
+          cat conf.yaml
 
       - name: Export
         run: |
